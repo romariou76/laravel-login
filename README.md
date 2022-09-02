@@ -21,10 +21,7 @@ Mira **Deployment** para conocer como desplegar el proyecto.
 
 ### Pre-requisitos 📋
 
-_Php 8
-_Laravel 8
-_PostgreSQL 14.5
-_Composer 2.4.1
+_Php 8, Laravel 8, PostgreSQL 14.5, Composer 2.4.1
 
 ### Instalación 🔧
 
