@@ -12,7 +12,7 @@
         @csrf
         <div class="form">
             <h1>Registro</h1>
-            <label>name</label>
+            <label>username</label>
                 <input type="text" name="username">
             <label>Email</label>
                 <input type="email" name="email">

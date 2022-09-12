@@ -13,12 +13,11 @@
         <div class="form">
             <h1>Login</h1>
             <label>Username/Email</label>
-                <input type="text" name="username" id="">
+                <input type="text" name="username">
             <label>Password</label>
-                <input type="password" name="password" id="">
-            <button type="submit" value="Login">Ingresar</button>
+                <input type="password" name="password">
+                <input type="submit" value="Login" class="button">
             <p>¿no tienes una cuenta?<a href="/register"> registrate aqui</a></p>
-
-    </form>
+     </form>
 </body>
 </html>

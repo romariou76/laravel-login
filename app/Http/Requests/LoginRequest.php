@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+//Importamos esta libreria
 use Illuminate\Contracts\Validation\Factory as ValidationFactory;
 
 class LoginRequest extends FormRequest
@@ -14,14 +15,12 @@ class LoginRequest extends FormRequest
      */
     public function authorize()
     {
-        //autorizamos el uso de la solicitud
         return true;
     }
-
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, mixed>
+     * @return array
      */
     public function rules()
     {
@@ -29,26 +28,24 @@ class LoginRequest extends FormRequest
             'username' => 'required',
             'password' => 'required'
         ];
-
     }
 
-        // metodo para acceder a los valores de la bd y hacer la autenticacion
-        public function getCredentials(){
-            $username = $this->get('username');
+    public function getCredentials(){
+        $username = $this->get('username'); //obtenemos el valor username
 
-            if($this->isEmail($username)){
-                return [
-                    'email' => $username,
-                    'password' => $this->get('password')
-                ];
-            };
-            return $this->only('username', 'password');
+        if ($this->isEmail($username)) {  // validamos si es un email
+            return [
+                'email' => $username,
+                'password' => $this->get('password')
+            ];
         }
+        return $this->only('username', 'password');
+    }
 
-        public function isEmail($value){
-            $factory = $this->container->make(ValidationFactory::class);
+    // regla de validacion
+    public function isEmail($value){
+        $factory = $this->container->make(ValidationFactory::class);
 
-            return !$factory->make(['username' => $value], ['username' => 'email'])->fails();
-        }
+        return !$factory->make(['username' => $value], ['username' => 'email'])->fails(); // si falla, regresemos el valor opuesto con metodo 'fails'
+    }
 }
-

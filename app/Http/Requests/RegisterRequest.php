@@ -7,20 +7,19 @@ use Illuminate\Foundation\Http\FormRequest;
 class RegisterRequest extends FormRequest
 {
     /**
-     * Determine if the user is authorized to make this request.
+     * Determinar si el usuario está autorizado para realizar esta solicitud.
      *
      * @return bool
      */
     public function authorize()
     {
-        // return false;
         return true;
     }
 
     /**
-     * Get the validation rules that apply to the request.
+     * Obtenga las reglas de validación que se aplican a la solicitud.
      *
-     * @return array<string, mixed>
+     * @return array
      */
     public function rules()
     {

@@ -48,7 +48,7 @@ input:focus{
     outline: none;
 }
 
-button{
+.button{
     margin: 25px 0px 20px 0px;
     background-color: rgb(81, 1, 255);
     color: white;
