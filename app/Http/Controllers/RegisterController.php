@@ -13,9 +13,9 @@ class RegisterController extends Controller
 {
     // Creamos el metodo show para mostrar una vista
     public function show(){
-        // if(Auth::check()){
-        //     return redirect('/home');
-        // }
+        if(Auth::check()){
+            return redirect('/home');
+        }
         return view('auth.register');
     }
 

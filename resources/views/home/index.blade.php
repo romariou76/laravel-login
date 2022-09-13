@@ -8,6 +8,7 @@
     <title>Document</title>
 </head>
 <body>
+
 <div class="navbar">
     <div class="title">
         Romario APP
@@ -18,12 +19,18 @@
         <a href="#about">About</a>
         <a href="#about">Tutoriales</a>
         <a href="#about">Iniciar Sesion</a>
-        <a href="#about">Salir</a>
+        <a href="/logout">Salir</a>
     </div>
 </div>
-<div>
 
-</div>
+
+@auth
+    <p>Bienvenido {{ auth()->user()->username ?? auth()->user()->username }} eestas autenticado a la pagina</p>
+@endauth
+
+@guest
+    <p>Para ver el contenido <a href="/login">Inicie sesion</a></p>
+@endguest
             
 
 <div class='foter'>
