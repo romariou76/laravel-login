@@ -7,6 +7,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\ArticulosController;
 
 /*--------------------------------------------------------------------------
  Web Routes
@@ -36,3 +37,5 @@ Route::get('/home', [HomeController::class, 'index']);
     Route::get('/logout', [LogoutController::class, 'logout']);
 // });
 
+// Ruta para el registro de articulos
+Route::post('/articulos', [ArticulosController::class, 'store'])->name('articulos.store');

@@ -38,18 +38,18 @@
 
 <div class="contenedor">
 
-    <form action="POST">
+    <form action="{{route('articulos.store')}}" method="POST">
+        @csrf
         <div class="create-div">
             <label>nombre</label>
-                <input type="text">
+                <input type="text" name="nombre">
             <label>Descripcion</label>
-                <input type="text">
+                <input type="text" name="descripcion">
             <label>Precio</label>
-                <input type="text">
-            <label>Imagen</label>
-                <input type="text">
+                <input type="text" name="precio">
+            
                 <br>    
-            <button>Agregar Articulo</button>
+            <button type="submit">Agregar Articulo</button>
         </div>
     </form>
     
