@@ -32,9 +32,7 @@ Route::post('/login', [LoginController::class, 'login']);
 Route::get('/home', [HomeController::class, 'index']);
 
 // Route::group(['middleware' => ['auth']], function () { 
-
-//     Route::get('/home', [HomeController::class, 'index']);
-
+    Route::get('/home', [HomeController::class, 'index']);
+    Route::get('/logout', [LogoutController::class, 'logout']);
 // });
 
-Route::get('/logout', [LogoutController::class, 'logout']);

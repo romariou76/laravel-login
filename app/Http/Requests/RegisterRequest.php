@@ -27,6 +27,7 @@ class RegisterRequest extends FormRequest
             //Vamos a validar si cada uno de los campos cumplen con ciertos requisitos
             'email' => 'required|unique:users,email',
             'username' => 'required|unique:users,username',
+            'roles_id' => 'nullable',
             'password' => 'required|min:8',
             'password_confirmation' => 'required|same:password',
         ];

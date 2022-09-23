@@ -16,11 +16,13 @@
                 <input type="text" name="username">
             <label>Email</label>
                 <input type="email" name="email">
+            <label for="">Rol</label>
+                <input type="text" name="rol">
             <label>Password</label>
                 <input type="password" name="password">
             <label>Password confirmation</label>
                 <input type="password" name="password_confirmation">
-                <button type="submit" value="Registrarse" class="button">Registrarse</button>
+            <button type="submit" value="Registrarse" class="button">Registrarse</button>
         </div>
     </form>
 </body>
