@@ -35,7 +35,7 @@ label{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-input{
+.input{
 	width: 295px;
     margin: 10px 0px 10px 0px;
     background: none;

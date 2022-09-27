@@ -13,16 +13,24 @@
         <div class="form">
             <h1>Registro</h1>
             <label>username</label>
-                <input type="text" name="username">
+                <input class="input" type="text" name="username">
             <label>Email</label>
-                <input type="email" name="email">
+                <input class="input" type="email" name="email">
+    
+
             <label for="">Rol</label>
-                <input type="text" name="rol">
+            <br><br>
+            <input type="radio" id="vendedor" name="rol" value="vendedor">
+            <label for="vendedor">Vendedor</label>
+            <input type="radio" id="escritor" name="rol" value="escritor">
+            <label for="escritor">Escritor</label>
+<br><br>
             <label>Password</label>
-                <input type="password" name="password">
+                <input class="input" type="password" name="password">
             <label>Password confirmation</label>
-                <input type="password" name="password_confirmation">
+                <input class="input" type="password" name="password_confirmation">
             <button type="submit" value="Registrarse" class="button">Registrarse</button>
+            <p>¿Ya tienes una cuenta?<a href="/login">Inicie sesion</a></p>
         </div>
     </form>
 </body>

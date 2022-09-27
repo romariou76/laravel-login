@@ -23,75 +23,56 @@
     </div>
 </div>
 
-
 @auth
-    <p>Bienvenido {{ auth()->user()->username ?? auth()->user()->username }} eestas autenticado a la pagina</p>
+    <p class="titulo">Bienvenido {{ auth()->user()->username ?? auth()->user()->username }} estas autenticado en Romario App</p>
 @endauth
 
 @guest
     <p>Para ver el contenido <a href="/login">Inicie sesion</a></p>
-
-
-
-
 @endguest
 
 <div class="contenedor">
-
     <form action="{{route('articulos.store')}}" method="POST">
         @csrf
+        <h2>Lista de Articulos</h2>
         <div class="create-div">
-            <label>nombre</label>
-                <input type="text" name="nombre">
-            <label>Descripcion</label>
-                <input type="text" name="descripcion">
-            <label>Precio</label>
-                <input type="text" name="precio">
-            
+                <input type="text" name="user_id" placeholder="Usuario_Id">
+                <input type="text" name="title" placeholder="Nombre">
+                <input type="text" name="description" placeholder="Descripcion">
+                <input type="text" name="price" placeholder="Precio">
                 <br>    
             <button type="submit">Agregar Articulo</button>
         </div>
     </form>
+
+<!-- LISTA DE ARTICULOS -->
     
     <div class="lista_articulos">
         <h2>Lista de Articulos</h2>
             <table>
-                <tr>
+                <tr class="tr-articulos">
+                    <th>User_id</th>
                     <th>Nombre</th>
                     <th>Descripcion</th>
                     <th>Precio</th>
                     <th>Acciones</th>
                 </tr>
+                    @foreach ($articulos as $articulo)
                 <tr>
-                    <td>Cuaderno</td>
-                    <td>180 hojas A4</td>
-                    <td>s/5.00</td>
-                    <td><a href="#editar">Editar</a><a href="#eliminar">Eliminar</a></td>
-                </tr>
-                <tr>
-                    <td>Computadora AMD 500PX</td>
-                    <td>1tb HDD Monitor ips Intel i5</td>
-                    <td>s/5000.00</td>
-                    <td><a href="#editar">Editar</a><a href="#eliminar">Eliminar</a></td>
-                </tr>
-                <tr>
-                    <td>Cuaderno</td>
-                    <td>180 hojas A4</td>
-                    <td>s/5.00</td>
-                    <td><a href="#editar">Editar</a><a href="#eliminar">Eliminar</a></td>
-                </tr>
+                    <th>{{$articulo->user_id}}</th>
+                    <th>{{$articulo->title}}</th>
+                    <th>{{$articulo->description}}</th>
+                    <th>{{$articulo->price}}</th>
+                    <th><a href="#Editar">Editar</a><a href="#eliminar">Eliminar</a></th>
+                </tr>  
+                    @endforeach
             </table>
-    </div>
-</div>     
-
-
+        </div>
+    </div>     
 
 <div class='foter'>
     <p>Copyright © 2022 Mejorando dia a dia / Desarrollado por Romario</p>
 </div>
-
-
-
 
 </body>
 </html>

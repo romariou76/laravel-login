@@ -38,4 +38,9 @@ Route::get('/home', [HomeController::class, 'index']);
 // });
 
 // Ruta para el registro de articulos
-Route::post('/articulos', [ArticulosController::class, 'store'])->name('articulos.store');
+
+Route::controller(ArticulosController::class)->group(function(){
+    Route::post('/articulos', 'store')->name('articulos.store');
+    Route::get('/home', 'index')->name('home.index');
+// Route::get('/articuloos', [ArticulosController::class, 'index'])->name('articulos.show');
+});

@@ -33,6 +33,13 @@
     background-color: green;
 }
 
+.titulo{
+    margin-top: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
 /* Contendor principal */
 .contenedor{
     height: 560px;
@@ -40,6 +47,11 @@
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+}
+
+.contenedor h2{
+    text-align: center;
+    margin-bottom: 5px;
 }
 
 /* crear tabla */
@@ -53,10 +65,30 @@
     background-color: bisque;
 }
 
+.create-div input{
+    padding: 5px;
+    margin: 5px 0px 5px 0px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+}
+
+.create-div button{
+    padding: 10px;
+    color: white;
+    background-color: rgb(145, 0, 241);
+    border: none;
+    border-radius: 5px;
+}
+
 /* Tabla */
 
 .lista_articulos{
     text-align: center;
+}
+
+.lista_articulos th{
+    padding: 5px;
 }
 
 table {
@@ -66,13 +98,18 @@ table {
 }
   
   td, th {
-    border: 1px solid #dddddd;
+    border: 1px solid #dddddd7a;
     text-align: left;
     padding: 8px;
   }
   
+.tr-articulos{
+    background-color: rgb(97, 0, 224);
+    color: white;
+}
+
   tr:nth-child(even) {
-    background-color: #dddddd;
+    background-color: #dddddd79;
   }
 
 /* FOOTER */
