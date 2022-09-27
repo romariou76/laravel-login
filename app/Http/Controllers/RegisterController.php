@@ -23,6 +23,10 @@ class RegisterController extends Controller
     // Usamos el request de registro
     // public function register(Request $request){
     public function register(RegisterRequest $request){
+
+        $input = $request->all();
+        $input['role_id'] = $request->rol;
+
         $user = User::create($request->validated()); //luego de validar los datos al crear el objeto user le redirigimos al login
         return redirect('/login')->with('success', 'usuario creado correctamente');
     }
