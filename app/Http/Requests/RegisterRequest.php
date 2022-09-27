@@ -25,11 +25,11 @@ class RegisterRequest extends FormRequest
     {
         return [
             //Vamos a validar si cada uno de los campos cumplen con ciertos requisitos
-            'email' => 'required|unique:users,email',
-            'username' => 'required|unique:users,username',
-            'rol' => 'required',
-            'password' => 'required|min:8',
-            'password_confirmation' => 'required|same:password',
+            'email'                   => 'required|unique:users,email',
+            'username'                => 'required|unique:users,username',
+            'rol'                     => 'required',
+            'password'                => 'required|min:8',
+            'password_confirmation'    => 'required|same:password',
         ];
     }
 }
