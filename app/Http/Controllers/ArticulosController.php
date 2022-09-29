@@ -4,36 +4,44 @@ namespace App\Http\Controllers;
 
 use App\Models\Articulo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 
 class ArticulosController extends Controller
 {
     //}
+    public function index(Request $request){
 
-    public function index(){
-        $articulos = Articulo::all();
-        // $articulos = Articulo::paginate();
+        // $user = Auth::user();
+        $user = $request->user();
+
+        // dd($user);
+        
+        $articulos = [];
+
+        if($user->role_id == 2){
+            //role_id == 2 es un escritor
+            $articulos = Articulo::where('user_id' , $user->id )->get();
+        }
+        else{
+            $articulos = Articulo::all();
+            // dd('Entre aqui');
+        }
+
         return view('home.index', compact('articulos'));
         // return $articulos;
     }
 
     public function store(Request $request){
-        // return $request->all();
-        $articulo = new Articulo();
-        
-        $articulo->user_id = $request->user_id;
-        $articulo->title = $request->title;
-        $articulo->description = $request->description;
-        $articulo->price = $request->price;
-        
-        $articulo->save();
-        return redirect()->back()->with('success', 'your message,here');
-        // return view('articulos.store');
-        // return redirect()->route('articuloos.show', $articulo);
-    }
+        // dd($request->all());
 
-    // public function show($id){
-    //     $articulo = Articulo::find($id);
-    //     return view('articulos.show', compact('articulo'));
-    // }
+        Articulo::create([
+            'user_id'     => $request->user()->id,
+            'title'       => $request->title,
+            'description' => $request->description,
+            'price' => $request->price,
+        ]);
+
+        return redirect()->back()->with('success', 'your message,here');
+    }
 }
