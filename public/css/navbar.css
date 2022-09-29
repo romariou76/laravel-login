@@ -65,6 +65,10 @@
     background-color: bisque;
 }
 
+.opcion_rol{
+    display: flex;
+}
+
 .create-div input{
     padding: 5px;
     margin: 5px 0px 5px 0px;

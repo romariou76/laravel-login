@@ -36,7 +36,16 @@
         @csrf
         <h2>Lista de Articulos</h2>
         <div class="create-div">
-                <input type="text" name="user_id" placeholder="Usuario_Id">
+
+        <label for="">Rol</label>
+        <div class="opcion_rol">
+            <input type="radio" id="vendedor" name="user_id" value="1">
+            <label for="vendedor">Vendedor</label>
+            <input type="radio" id="escritor" name="user_id" value="2">
+            <label for="escritor">Escritor</label>
+        </div>
+            
+
                 <input type="text" name="title" placeholder="Nombre">
                 <input type="text" name="description" placeholder="Descripcion">
                 <input type="text" name="price" placeholder="Precio">

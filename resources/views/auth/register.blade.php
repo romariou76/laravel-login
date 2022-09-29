@@ -20,9 +20,9 @@
 
             <label for="">Rol</label>
             <br><br>
-            <input type="radio" id="vendedor" name="rol" value="vendedor">
+            <input type="radio" id="vendedor" name="rol" value="1">
             <label for="vendedor">Vendedor</label>
-            <input type="radio" id="escritor" name="rol" value="escritor">
+            <input type="radio" id="escritor" name="rol" value="2">
             <label for="escritor">Escritor</label>
 <br><br>
             <label>Password</label>
