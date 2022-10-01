@@ -11,17 +11,25 @@
 
 <div class="navbar">
     <div class="title">
-        Romario APP
+        <p>Romario Beats</p>
     </div>
     <div class="navbar-items">
         <a href="#home">Home</a>
-        <a href="#news">News</a>
-        <a href="#about">About</a>
-        <a href="#about">Tutoriales</a>
-        <a href="#about">Iniciar Sesion</a>
+        <!-- <a href="#news">News</a> -->
+        <!-- <a href="#about">About</a> -->
+        <!-- <a href="#about">Tutoriales</a> -->
+        <!-- <a href="#about">Iniciar Sesion</a> -->
         <a href="/logout">Salir</a>
     </div>
 </div>
+
+@auth
+    <p class="titulo">Bienvenido {{ auth()->user()->username ?? auth()->user()->username }} estas autenticado en Romario App</p>
+@endauth
+
+@guest
+    <p>Para ver el contenido <a href="/login">Inicie sesion</a></p>
+@endguest
 
 <div class="contenedor">
   @yield('content')

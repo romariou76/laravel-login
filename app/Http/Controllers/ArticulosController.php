@@ -20,11 +20,14 @@ class ArticulosController extends Controller
         $articulos = [];
 
         if($user->role_id == 2){
-            //role_id == 2 es un escritor
+
             $articulos = Articulo::where('user_id' , $user->id )->get();
+        
         }
         else{
+
             $articulos = Articulo::all();
+            return view('home.vendedor', compact('articulos'));
             // dd('Entre aqui');
         }
 
@@ -39,9 +42,16 @@ class ArticulosController extends Controller
             'user_id'     => $request->user()->id,
             'title'       => $request->title,
             'description' => $request->description,
-            'price' => $request->price,
+            'price'       => $request->price,
         ]);
 
         return redirect()->back()->with('success', 'your message,here');
     }
+
+    public function destroy($id)
+    {
+        Articulo::destroy($id);
+        return redirect('articulos');
+    }
+
 }

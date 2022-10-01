@@ -4,12 +4,12 @@
 
 <form action="{{route('articulos.store')}}" method="POST">
         @csrf
-        <h2>Lista de Articulos</h2>
+        <h2>Agregar Articulo</h2>
             <div class="create-div">
                 
                 <input type="text" name="title" placeholder="Nombre">
                 <input type="text" name="description" placeholder="Descripcion">
-                <input type="text" name="price" placeholder="Precio">
+                <!-- <input type="text" name="price" placeholder="Precio"> -->
                  <br>    
                 <button type="submit">Agregar Articulo</button>
             </div>
@@ -32,8 +32,15 @@
                     <th>{{$articulo->user->username}}</th>
                     <th>{{$articulo->title}}</th>
                     <th>{{$articulo->description}}</th>
-                    <th>{{$articulo->price}}</th>
-                    <th><a href="#Editar">Editar</a><a href="#eliminar">Eliminar</a></th>
+                    <th>s/{{$articulo->price}}</th>
+                    <td>
+                        <a class="editar-button" href="#Editar">Editar</a>
+                        <form action="{{ url('/articulos/'.$articulo->id ) }}" method="post">
+                            @csrf
+                            {{ method_field('DELETE') }}
+                            <input class="eliminar-button" type="submit" onclick="return confirm('¿Quieres borrar?')" value="Borrar">
+                        </form>
+                    </td>
                 </tr>  
                     @endforeach 
             </table>

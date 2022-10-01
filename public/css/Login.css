@@ -5,8 +5,8 @@
 }
 
 body{
-  height: 630px;
-  background-color: rgb(96, 36, 111);
+  height: 100vh;
+  background: linear-gradient(90deg, rgba(58,0,83,1) 0%, rgba(0,24,142,1) 34%, rgba(255,108,108,1) 100%);
   display: flex;
   justify-content: center;
   align-items: center;
