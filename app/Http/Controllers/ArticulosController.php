@@ -9,12 +9,24 @@ use Illuminate\Support\Facades\Auth;
 
 class ArticulosController extends Controller
 {
-    //}
+    
+    public function store(Request $request){
+        // dd($request->all());
+
+        Articulo::create([
+            'user_id'     => $request->user()->id,
+            'title'       => $request->title,
+            'description' => $request->description,
+            'price'       => $request->price,
+        ]);
+
+        return redirect()->back()->with('success', 'your message,here');
+    }
+
     public function index(Request $request){
 
         // $user = Auth::user();
         $user = $request->user();
-
         // dd($user);
         
         $articulos = [];
@@ -35,17 +47,44 @@ class ArticulosController extends Controller
         // return $articulos;
     }
 
-    public function store(Request $request){
-        // dd($request->all());
+    public function edit(Request $request, $id){
 
-        Articulo::create([
-            'user_id'     => $request->user()->id,
-            'title'       => $request->title,
-            'description' => $request->description,
-            'price'       => $request->price,
-        ]);
+        $articulos = Articulo::findOrFail($id);
 
-        return redirect()->back()->with('success', 'your message,here');
+        $user = $request->user();
+
+        if($user->role_id == 2){
+            $articulos = Articulo::where('user_id' , $user->id )->get();
+        }
+
+        else{
+            return view('layouts.form', compact('articulos'));
+        }
+
+        $articulos = Articulo::findOrFail($id);
+            return view('layouts.edit', compact('articulos'));
+
+    }
+
+    public function update(Request $request, $id){
+    
+        $datosArticulo = request()->except(['_token','_method']);
+        Articulo::where('id','=',$id)->update($datosArticulo);
+
+        $user = $request->user();
+
+        if($user->role_id == 2){
+            $articulos = Articulo::where('user_id' , $user->id )->get();
+        }
+
+        else{
+            $articulos = Articulo::findOrFail($id);
+            return view('layouts.form', compact('articulos'));
+        }
+
+        $articulos = Articulo::findOrFail($id);
+            return view('layouts.edit', compact('articulos'));
+
     }
 
     public function destroy($id)

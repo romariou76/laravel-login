@@ -4,6 +4,15 @@
 
 <!-- LISTA DE ARTICULOS -->
 <div class="vendedor-container">
+
+    <!-- Filtro de Busqueda -->
+    <form action="" method="GET">
+        <div class="btn-group">
+            <input type="text" name="busqueda" class="form-control" placeholder="Busque un articulo">
+            <input type="submit" value="Search" class="btn-search">
+        </div>
+    </form>
+
     <div class="lista_articulos">
         <h2>Lista de Articulos</h2>
         <table>
@@ -20,23 +29,14 @@
                 <th>{{$articulo->title}}</th>
                 <th>{{$articulo->description}}</th>
                 <th>s/ {{$articulo->price}}</th>
-                <th><a href="#Editar">Editar</a><a href="#eliminar">Vender</a></th>
+                <th>
+                    <a class="editar-button" href="{{ url('/articulos/'.$articulo->id.'/edit') }}">Editar</a>
+                    <a class="vender-button" href="#eliminar">Vender</a>
+                </th>
             </tr>  
             @endforeach 
         </table>
     </div>
-
-    <!-- Filtro de Busqueda -->
-
-    <div class="filter-body">
-        <form action="" method="GET">
-            <div class="btn-group">
-                <input type="text" name="busqueda" class="form-control">
-                <input type="submit" value="enviar" class="btn btn primary">
-            </div>
-        </form>
-    </div>
-
 </div>
 
 

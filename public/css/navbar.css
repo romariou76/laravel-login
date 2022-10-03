@@ -92,6 +92,10 @@ p{
     border-radius: 5px;
 }
 
+.create-div h2{
+    color: rgb(36, 35, 35);
+}
+
 .create-div button{
     padding: 10px;
     color: white;
@@ -105,6 +109,15 @@ p{
 .lista_articulos{
     text-align: center;
     font-size: 15px;
+    width: auto;
+    height: auto;
+    background-color: white;
+    border-radius: 20px;
+}
+
+.lista_articulos h2{
+    color: black;
+    margin: 15px;
 }
 
 .lista_articulos th{
@@ -112,32 +125,48 @@ p{
 }
 
 table {
-    font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 100%;
-    justify-content: flex-start;
     background-color: white;
 }
 
-/* VENDEDOR CONTAINER PAGE */
+/* ---------------VENDEDOR CONTAINER PAGE-------------- */
 
 .vendedor-container{
-    display: flex;
-    align-items: center;
-    width: 90%;
-    height: 60vh;
+    width: auto;
+    height: auto;
     background-color: white;
-    border: 1px solid black;
+    border-radius: 20px;
 }
 
-.filter-body{
+.btn-group{
+    margin: 2rem;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
+}
+
+.form-control{
+    outline: none;
+    border: none;
+    width: 300px;
+    padding: 10px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    background-color: rgba(180, 179, 179, 0.512);
+}
+
+.btn-search{
+    background-color: rgb(135, 135, 255);
+    color: white;
+    outline: none;
+    border: none;
+    padding: 10px 15px 10px 15px;
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
 }
   
   td, th {
     border: 1px solid #dddddd7a;
-    text-align: left;
     text-align: center;
     padding: 8px;
   }
@@ -148,16 +177,37 @@ table {
     padding: 15px;
 }
 
-.editar-button{
-    background-color: green;
-    color: white;
-    text-decoration: none;
+.acciones-div{
+    display: flex;
+}
 
+.editar-button{
+    background-color: rgb(0, 177, 0);
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.vender-button{
+    background-color: rgb(0, 152, 247);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    text-decoration: none;
 }
 
 .eliminar-button{
     background-color: red;
     color: white;
+    padding: 12px;
+    font-weight: bold;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    margin-left: 5px;
     text-decoration: none;
 }
 
@@ -165,10 +215,12 @@ table {
     background-color: #dddddd79;
   }
 
-/* FOOTER */
+/* ------------------------FOOTER-------------------------*/
 
 .foter{
     height: 100px;
+    bottom: 0px;
+    position: absolute;
     color: white;
     width: 100%;
     background-color: black;
@@ -177,4 +229,3 @@ table {
     align-items: center;
     /* margin-top: 460px; */
 }
-
