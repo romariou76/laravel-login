@@ -33,12 +33,18 @@ class ArticulosController extends Controller
 
         if($user->role_id == 2){
 
-            $articulos = Articulo::where('user_id' , $user->id )->get();
+            $articulos = Articulo::where('user_id' , $user->id )->paginate(5);
         
         }
         else{
 
-            $articulos = Articulo::all();
+            $title = $request->title;
+            // $user_id = $request->user_id;
+            
+            // $articulos = Articulo::all();
+            $articulos = Articulo::orderBy('id')->searchTitle($title)->paginate(5);
+            // $articulos = Articulo::orderBy('id')->searchUser($user_id)->paginate();
+
             return view('home.vendedor', compact('articulos'));
             // dd('Entre aqui');
         }
@@ -91,6 +97,15 @@ class ArticulosController extends Controller
     {
         Articulo::destroy($id);
         return redirect('articulos');
+    }
+
+    // Metodo para Realizar Busqueda filtrando titulo o escritor
+
+    public function scopeSearchTitle($query, $value){
+        if($value){
+            return $query->where('title', 'ilike', "%{$value}%");
+            //return $query->where('title', 'ilike', "%".$value."%")
+        }
     }
 
 }

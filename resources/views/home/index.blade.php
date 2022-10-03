@@ -46,5 +46,7 @@
         @endforeach 
     </table>
 </div>
+{!! $articulos->links() !!}
+
 
 @endsection
