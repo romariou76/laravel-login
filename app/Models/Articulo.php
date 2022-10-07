@@ -15,6 +15,7 @@ class Articulo extends Model
         'title',
         'description',
         'price',
+        'img_path',
     ];
 
     /**

@@ -13,11 +13,16 @@ class ArticulosController extends Controller
     public function store(Request $request){
         // dd($request->all());
 
+        if($request->hasFile('img_path')){
+            $articulos['img_path']=$request->file('img_path')->store('uploads','public');
+        }
+
         Articulo::create([
             'user_id'     => $request->user()->id,
             'title'       => $request->title,
             'description' => $request->description,
             'price'       => $request->price,
+            'img_path'    => $request->img_path,
         ]);
 
         return redirect()->back()->with('success', 'your message,here');

@@ -19,6 +19,7 @@ class CreateArticulosTable extends Migration
             $table->string('title');
             $table->string('description');
             $table->decimal('price',10,2)->nullable();
+            $table->string('img_path');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')

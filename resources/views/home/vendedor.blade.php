@@ -6,14 +6,13 @@
 <div class="vendedor-container">
 
     <!-- Filtro de Busqueda -->
-    <form action="{{ route('articulos.index') }}" method="GET">
-        <div class="btn-group">
-            <input type="text" name="title" class="form-control" placeholder="Busque un articulo">
-            <!-- <input type="text" name="user_id" class="form-control" placeholder="Busque por su user_id"> -->
-
-            <input type="submit" value="Search" class="btn-search">
-        </div>
-    </form>
+       <form action="{{ route('articulos.index') }}" method="GET">
+            <div class="btn-group">
+                <input type="text" name="title" class="form-control" placeholder="Busque un articulo">
+                <!-- <input type="text" name="user_id" class="form-control" placeholder="Busque por su user_id"> -->
+                <input type="submit" value="Search" class="btn-search">
+            </div>
+        </form> 
 
     <div class="lista_articulos">
         <h2>Lista de Articulos</h2>

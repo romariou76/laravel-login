@@ -11,6 +11,8 @@
         <input type="text" name="title" placeholder="Nombre">
         <input type="text" name="description" placeholder="Descripcion">
         <input type="text" name="price" placeholder="Precio" disabled>
+        <input type="file" name="img_path">
+
         <br>    
         <button type="submit">Agregar Articulo</button>
     </div>
@@ -23,6 +25,7 @@
     <table>
         <tr class="tr-articulos">
             <th>Usuario</th>
+            <th>Foto</th>
             <th>Nombre</th>
             <th>Descripcion</th>
             <th>Precio</th>
@@ -31,6 +34,9 @@
             @foreach ($articulos as $articulo)
         <tr>
             <th>{{$articulo->user->username}}</th>
+            <th>
+                <img class="img-articulo" src="{{ asset('storage').'/'.$articulo->img_path }}" alt="foto">
+            </th>
             <th>{{$articulo->title}}</th>
             <th>{{$articulo->description}}</th>
             <th>s/{{$articulo->price}}</th>
